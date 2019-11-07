@@ -34,23 +34,26 @@ public class Login extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+		
+        String name = request.getParameter("name");
+		String password = request.getParameter("password");
+		String dbName = null;
+		String dbPassword = null;
+		
 		try {
-			String name = request.getParameter("name");
-			String password = request.getParameter("password");
-			String dbName = null;
-			String dbPassword = null;
-			String sql = "select * from register where name=? and password=?";
 			
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_register?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "dionisis1997");
 			
-			PreparedStatement ps = con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement("select * from register where name=? and password=?");
 			ps.setString(1,name);
 			ps.setString(2,password);
 			ResultSet rs = ps.executeQuery();
-			PrintWriter out = response.getWriter();
+			
 			while(rs.next()) {
-				dbName = rs.getString(2);
+				dbName = rs.getString("name");
 				dbPassword = rs.getString("password");
 			}
 			if(name.equals(dbName)&&password.equals(dbPassword)) {
