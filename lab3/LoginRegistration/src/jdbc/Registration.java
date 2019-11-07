@@ -39,7 +39,7 @@ public class Registration extends HttpServlet {
 			String password = request.getParameter("password");
 			
 			
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_register?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "dionisis1997");
 			
 			PreparedStatement ps = con.prepareStatement("insert into register(name,password) values(?,?);");
@@ -47,7 +47,7 @@ public class Registration extends HttpServlet {
 			ps.setString(2, password);
 			ps.executeUpdate();
 			
-			out.println("Welcome!");
+			out.println("You have successfully registered");
 		} 
 		catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
