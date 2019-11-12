@@ -9,13 +9,22 @@
 <body>
 <div align="center">
 <form action="Registration" method="post">
-<h2>Registration</h2>
-User name : <input type="text" name="user" required="required"><br/><br/>
-Password : <input type="password" name="password" required="required"><br/><br/> 
-<input type="submit" value="REGISTER"><br/><br/>
-<h4>Do you have already an account?</h4>
-<a href="login.jsp">Login</a>
+  
+    <h1>Register</h1>
+    	
+	<label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required><br/><br/>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required><br/><br/>
+	
+    <button type="submit" class="registrationbtn" value="Registration">Register</button>
+  
+  
+    <p>Already have an account? <a href="login.jsp">Sign in</a>.</p>
+  
 </form>
 </div>
 </body>
 </html>
+
