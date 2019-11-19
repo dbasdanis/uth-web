@@ -1,7 +1,7 @@
 # uth-web
 Lab1)  Static personal HTML page
 
-Lab2)  Add οφ google analytics to the personal page and exporting a pdf report that lists which pages of your site your visitors see.
+Lab2)  Add of google analytics to the personal page and exporting a pdf report that lists which pages of your site your visitors see.
 
 Lab3)  Creation of an application that supports register and login functions for users,
        using Java servlets that implement functionality and a database for storing user data.
